@@ -28,6 +28,13 @@ Alternatively, you can run a simulation with a single command:
     python simulation.py
     ```
 
+Also you can visualize the model's architecture by generating a plot
+
+- To visualize the model's structure, use:
+    ```shell
+    python utils/plot.py
+    ```
+
 ## Future Enhancements
 - Personalize datasets for each client instead of using a common sampled dataset.
 - Incorporate Docker and Docker Compose for containerization to automate the simulation of the server and clients.
