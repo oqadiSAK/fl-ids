@@ -1,5 +1,10 @@
 # DATASET STUFF
 
+# Ignore everything in the output directory
+output/*
+# Except for README.md
+!output/README.md
+
 # Ignore everything in the data directory
 data/*
 # Except for README.md
