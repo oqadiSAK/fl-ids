@@ -1,3 +1,12 @@
+# DATASET STUFF
+
+# Ignore everything in the data directory
+data/*
+# Except for README.md
+!data/README.md
+
+# REGULAR PYTHON STUFF
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
