@@ -17,7 +17,7 @@ class Client(fl.client.NumPyClient):
             metrics=["binary_accuracy"]
         )
 
-    def get_parameters(self, _):
+    def get_parameters(self, config):
         return self.model.get_weights()
 
     def fit(self, parameters, _):
