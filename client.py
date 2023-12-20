@@ -1,21 +1,15 @@
 import os
-import tensorflow as tf
 import flwr as fl
-import utils.dataloader as dataloader
-from model import Model
+import utils.data_loader as data_loader
+import utils.model_loader as model_loader
 
 # Make tensorflow log less verbose
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class Client(fl.client.NumPyClient):
     def __init__(self):
-        self.X_train, self.Y_train, self.X_test, self.Y_test = dataloader.get_data()
-        self.model = Model(self.X_train.shape[1:])
-        self.model.compile(
-            optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
-            loss="binary_crossentropy",
-            metrics=["binary_accuracy"]
-        )
+        self.X_train, self.Y_train, self.X_test, self.Y_test = data_loader.get_data()
+        self.model = model_loader.get_model(self.X_train.shape[1:])
 
     def get_parameters(self, config):
         return self.model.get_weights()
