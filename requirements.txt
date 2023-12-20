@@ -1,0 +1,5 @@
+flwr==1.6.0
+pandas==2.1.4
+scikit_learn==1.3.2
+tensorflow==2.15.0
+tensorflow_intel==2.15.0
