@@ -26,4 +26,5 @@ class Client(fl.client.NumPyClient):
 
 
 if __name__ == "__main__":
-    fl.client.start_numpy_client(server_address="127.0.0.1:8080", client=Client())
+    server_address = os.getenv("SERVER_ADDRESS", "127.0.0.1:8080")
+    fl.client.start_numpy_client(server_address=server_address, client=Client())

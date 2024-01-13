@@ -1,0 +1,59 @@
+version: '3.8'
+services:
+  server:
+    build: 
+      context: .
+      dockerfile: Dockerfile.server
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+    ports:
+      - 8080:8080
+    container_name: fl-ids-server
+
+  client1:
+    build: 
+      context: .
+      dockerfile: Dockerfile.client
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+    depends_on:
+      - server
+    environment:
+      - SERVER_ADDRESS=server:8080
+    container_name: fl-ids-client-1
+
+  client2:
+    build: 
+      context: .
+      dockerfile: Dockerfile.client
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+    depends_on:
+      - server
+    environment:
+      - SERVER_ADDRESS=server:8080
+    container_name: fl-ids-client-2
+
+  client3:
+    build: 
+      context: .
+      dockerfile: Dockerfile.client
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+    depends_on:
+      - server
+    environment:
+      - SERVER_ADDRESS=server:8080
+    container_name: fl-ids-client-3
+
+networks:
+  app-network:
+    driver: bridge
