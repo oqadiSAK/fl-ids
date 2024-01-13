@@ -8,25 +8,33 @@ To get the project up and running, follow these steps:
 1. Download the UNSW_NB15 dataset.
 2. Place the `UNSW_NB15_training-set.csv` and `UNSW_NB15_testing-set.csv` files in the project's data folder.
 
-## Execution
-The project can be run using shell commands. Here's how:
+## Simulation
+There are 3 options to execute simulation:
 
-- To initiate the server, use the command:
-    ```shell
-    python server.py
-    ```
-- To launch the clients, execute the following command for each client:
-    ```shell
-    python client.py
-    ```
-**Note:** To accurately simulate the project, at least three clients are needed to satisfy the `min_fit_clients`, `min_evaluate_clients`, and `min_available_clients` configuration.
+1. Manually
+    - To initiate the server, use the command:
+        ```shell
+        python server.py
+        ```
+    - To launch the clients, execute the following command for each client:
+        ```shell
+        python client.py
+        ```
+    **Note:** To accurately simulate the project, at least three clients are needed to satisfy the `min_fit_clients`, `min_evaluate_clients`, and `min_available_clients` configuration.
+    
+    **Note:** The server uses port 8080 as default. If you want to run it on a different port, you may need to change it in both `client.py` and `server.py`.
 
-Alternatively, you can run a simulation with a single command:
+2. Using the `simulation.py` script
+    - To run the simulation, use the command:
+        ```shell
+        python simulation.py
+        ```
 
-- To run the simulation, use the command:
-    ```shell
-    python simulation.py
-    ```
+3. Containerized simulation by running the Docker compose command
+    - To run the simulation, use the command:
+        ```shell
+        docker-compose up --build
+        ```
 
 Also you can visualize the model's architecture by generating a plot
 
@@ -37,4 +45,3 @@ Also you can visualize the model's architecture by generating a plot
 
 ## Future Enhancements
 - Personalize datasets for each client instead of using a common sampled dataset.
-- Incorporate Docker and Docker Compose for containerization to automate the simulation of the server and clients.
